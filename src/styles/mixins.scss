@@ -16,6 +16,11 @@
     font-weight: map.get(maps.$font-weights, "regular")
 }
 
+@mixin title-small($fontSize: 24px) {
+    font-size: $fontSize;
+    font-weight: map.get(maps.$font-weights, "regular")
+}
+
 @mixin subtitle($fontSize: 18px) {
     font-size: $fontSize;
     font-weight: map.get(maps.$font-weights, "regular")
