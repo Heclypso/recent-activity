@@ -49,12 +49,14 @@ export const existeAlgumaAnomaliaDetectada = () => {
         const oldSection = document.querySelector("#old-section-target")
 
         const activityIcon = document.querySelector("img.activity-icon-history")
+        const statusMessage = document.querySelector(".message__text")
 
         oldDevice.innerText = newDevice.innerText
         oldLocal.innerText = newLocal.innerText
         oldBrowser.innerText = newBrowser.innerText
         oldSection.innerHTML = newSection.innerHTML
         activityIcon.src = './images/danger-activity.svg'
+        statusMessage.innerText = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail.'
 
         newDevice.innerText = 'Linux'
         newLocal.innerText = 'Chengdu, China'
