@@ -3,7 +3,7 @@
 .btn-trigger {
     width: 56px;
     height: 56px;
-    background-color: variables.$primaryColor;
+    background-color: variables.$tertiaryGreenColor;
     border: .5px solid variables.$secondaryStrokeColor;
     border-radius: 50%;
     position: absolute;
@@ -16,6 +16,10 @@
 
     &:active {
         animation: 1s ease pulse;
+    }
+
+    &--danger {
+        background-color: variables.$secondaryDangerColor;
     }
 }
 
