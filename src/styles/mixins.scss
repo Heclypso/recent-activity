@@ -1,0 +1,22 @@
+@use 'maps';
+@use 'sass:map';
+
+@mixin text-big($fontSize: 16px) {
+    font-size: $fontSize;
+    font-weight: map.get(maps.$font-weights, "regular")
+}
+
+@mixin text-small($fontSize: 14px) {
+    font-size: $fontSize;
+    font-weight: map.get(maps.$font-weights, "regular")
+}
+
+@mixin title($fontSize: 28px) {
+    font-size: $fontSize;
+    font-weight: map.get(maps.$font-weights, "regular")
+}
+
+@mixin subtitle($fontSize: 18px) {
+    font-size: $fontSize;
+    font-weight: map.get(maps.$font-weights, "regular")
+}
