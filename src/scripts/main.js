@@ -1,3 +1,3 @@
-import { soma } from './package.min.js'
+import { chamarApi } from './package.min.js'
 
-console.log(soma(1, 3))
+document.querySelector('.btn-trigger').addEventListener('click', chamarApi)
