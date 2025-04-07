@@ -38,17 +38,29 @@ export const existeAlgumaAnomaliaDetectada = () => {
         buttonImage.alt = "Icone de conta em perigo"
         button.classList.toggle('btn-trigger--danger')
         
-        const device = document.querySelector("#device-target")
-        const local = document.querySelector("#local-target")
-        const browser = document.querySelector("#browser-target")
-        const section = document.querySelector("#section-target")
+        const newDevice = document.querySelector("#new-device-target")
+        const newLocal = document.querySelector("#new-local-target")
+        const newBrowser = document.querySelector("#new-browser-target")
+        const newSection = document.querySelector("#new-section-target")
 
-        device.innerText = 'Linux'
-        local.innerText = 'Chengdu, China'
-        browser.innerText = 'Safari'
-        section.innerText =  'Atividade suspeita'
-        section.classList.add('section--danger')
+        const oldDevice = document.querySelector("#old-device-target")
+        const oldLocal = document.querySelector("#old-local-target")
+        const oldBrowser = document.querySelector("#old-browser-target")
+        const oldSection = document.querySelector("#old-section-target")
 
+        const activityIcon = document.querySelector("img.activity-icon-history")
+
+        oldDevice.innerText = newDevice.innerText
+        oldLocal.innerText = newLocal.innerText
+        oldBrowser.innerText = newBrowser.innerText
+        oldSection.innerHTML = newSection.innerHTML
+        activityIcon.src = './images/danger-activity.svg'
+
+        newDevice.innerText = 'Linux'
+        newLocal.innerText = 'Chengdu, China'
+        newBrowser.innerText = 'Safari'
+        newSection.innerHTML =  '<img class="activity-icon activity-icon-history" src="./images/danger-activity.svg" alt="Ícone da atividade atual">Atividade suspeita'
+        newSection.classList.add('section--danger')
     } else {
         console.log("Nenhuma invasão detectada.")
     }

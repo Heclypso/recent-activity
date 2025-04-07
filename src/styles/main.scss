@@ -113,13 +113,13 @@ body {
     }
 
     &__content {
-        width: 240px;
+        width: 250px;
         display: flex;
         align-items: center;
         justify-content: flex-end;
 
         &__main {   
-            width: 130px;
+            width: 140px;
             display: flex;
             flex-direction: column;
 
@@ -163,11 +163,9 @@ body {
         margin: 12px 0px;
     }
 
-    .blue-circle {
+    .activity-icon {
         width: 14px;
         height: 14px;
-        background-color: variables.$currentSectionColor;
-        border-radius: 50%;
     }
 }
 
