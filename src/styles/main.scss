@@ -119,6 +119,7 @@ body {
         justify-content: flex-end;
 
         &__main {   
+            width: 130px;
             display: flex;
             flex-direction: column;
 
@@ -141,6 +142,10 @@ body {
                 align-items: center;
                 gap: 4px;
                 margin-top: 8px;
+
+                &--danger {
+                    color: variables.$primaryDangerColor;
+                }
             }
         }
 
@@ -152,7 +157,7 @@ body {
     }
 
     .stroke {
-        width: 220px;
+        width: 240px;
         height: 1px;
         background-color: variables.$secondaryStrokeColor;
         margin: 12px 0px;
@@ -175,6 +180,10 @@ body {
     align-items: center;
     justify-content: center;
 
+    &--danger {
+        background-color: variables.$secondaryDangerColor;
+    }
+
     &__icon {
         width: 38px;
         height: 50.5px;
@@ -183,10 +192,12 @@ body {
     &__title {
         margin-top: 16px;
         margin-bottom: 2px;
+        color: variables.$secondaryTextColor;
     }
 
     &__subtitle {
         margin-bottom: 28px;
+        color: variables.$primaryTextColor;
     }
 }
 
@@ -212,6 +223,15 @@ body {
     
             &__title {
                 width: 434px;
+                color: variables.$secondaryTextColor;
+            }
+
+            &__subtitle {
+                color: variables.$primaryTextColor;
+
+                &--danger {
+                    color: variables.$primaryDangerColor;
+                }
             }
         }
     
