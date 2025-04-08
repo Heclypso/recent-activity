@@ -2,6 +2,7 @@
 @use 'variables';
 @use 'mixins';
 @use 'buttons';
+@use 'breakpoints';
 
 body {
     background-color: variables.$primaryColor;
@@ -10,56 +11,93 @@ body {
 }
 
 .title {
-    @include mixins.title()
+    @include mixins.title(20px);
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        @include mixins.title()
+    }
 }
 
 .title-small {
-    @include mixins.title-small()
+    @include mixins.title-small() 
 }
 
 .subtitle {
-    @include mixins.subtitle()
+    @include mixins.subtitle(1rem);
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        @include mixins.subtitle()
+    }
 }
 
 .text-small {
-    @include mixins.text-small()
+    @include mixins.text-small(.875rem); 
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        @include mixins.text-small() 
+    }
 }
 
 .text-big {
-    @include mixins.text-big()
+    @include mixins.text-big(12px);
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        @include mixins.text-big()
+    }
 }
 
 .container {
-    max-width: 546px;
     margin: auto;
+    width: 90vw;
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        max-width: 546px;
+    }
 
     &--nav {
-        width: 100%;
-        margin: auto auto 12px auto;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         justify-self: end;
+        margin-top: 64px;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            margin: auto auto 12px auto;
+            width: 100%;
+        }
     }
 
     &--security {
-        max-width: 550px;
-        margin: 32px auto auto auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        margin-top: 40px;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            max-width: 550px;
+            margin: 32px auto auto auto;
+        }
     }
 }
 
 .nav {
     background-color: variables.$primaryColor;
-    width: 100%;
-    height: 116px;
     display: flex;
-    border-bottom: .5px solid variables.$primaryStrokeColor;
+    
+    @media (#{breakpoints.$breakpointDesktop}) {
+        width: 100%;
+        height: 116px;
+        border-bottom: .5px solid variables.$primaryStrokeColor;
+    }
 
     &--security {
-        height: 64px;
+        height: 52px;
+        border-bottom: .5px solid variables.$primaryStrokeColor;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            height: 64px;
+        }
     }
 
     &__link {
@@ -80,12 +118,20 @@ body {
 
 .message {
     margin-top: 32px;
-    margin-bottom: 28px;
     color: variables.$primaryTextColor;
+    margin-bottom: 20px;
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        margin-bottom: 28px;
+    }
 
     &__text {
         max-width: 552px;
-        margin-bottom: 8px;  
+        margin-bottom: 16px;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            margin-bottom: 8px;  
+        }        
     }
 
     &__link {
@@ -106,10 +152,32 @@ body {
     align-items: flex-end;
     position: relative;
 
-    &__title {
+
+    &__icon {
         position: absolute;
+        top: 28px;
+        left: 20px;
+        width: 54px;
+        height: 40px;
+        background-color: variables.$primaryDangerColor;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            display: none;
+        }
+    }
+
+    &__title {
+        width: 240px;
         top: 12px;
         left: 12px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+        
+        @media (#{breakpoints.$breakpointDesktop}) {
+            position: absolute;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
     }
 
     &__content {
@@ -150,17 +218,25 @@ body {
         }
 
         &__aside {
-            width: 110px;
+            width: 100px;
             display: flex;
             justify-content: flex-end;
+
+            @media (#{breakpoints.$breakpointDesktop}) {
+                width: 110px;
+            }
         }
     }
 
     .stroke {
-        width: 250px;
+        width: 240px;
         height: 1px;
         background-color: variables.$secondaryStrokeColor;
         margin: 12px 0px;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            width: 250px;
+        }
     }
 
     .activity-icon {
@@ -170,13 +246,18 @@ body {
 }
 
 .status {
-    width: 88px;
-    height: 88px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background-color: variables.$tertiaryGreenColor;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (#{breakpoints.$breakpointDesktop}) {
+        width: 88px;
+        height: 88px;
+    }
 
     &--danger {
         background-color: variables.$secondaryDangerColor;
@@ -194,8 +275,12 @@ body {
     }
 
     &__subtitle {
-        margin-bottom: 28px;
+        margin-bottom: 26px;
         color: variables.$primaryTextColor;
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            margin-bottom: 28px;
+        }
     }
 }
 
@@ -206,21 +291,35 @@ body {
         width: 100%;
         height: 72px;
         display: flex;
+        border-top: .5px solid variables.$secondaryStrokeColor;
         align-items: center;
-        border: 1px solid variables.$secondaryStrokeColor;
-    
-        &:first-child {
-            border-radius: 10px 10px 0px 0px;
-        }
-    
+        justify-content: left;
+
         &:nth-child(5) {
-            border-radius: 0px 0px 10px 10px;
+            border-bottom: .5px solid variables.$secondaryStrokeColor;
+        }
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            border: 1px solid variables.$secondaryStrokeColor;
+            justify-content: inherit;
+
+            &:first-child {
+                border-radius: 10px 10px 0px 0px;
+            }
+        
+            &:nth-child(5) {
+                border-radius: 0px 0px 10px 10px;
+            }
         }
     
         &__head {
-    
+            width: 100%;
+
+            @media (#{breakpoints.$breakpointDesktop}) {
+                width: 80%;
+            }
+
             &__title {
-                width: 434px;
                 color: variables.$secondaryTextColor;
             }
 
@@ -242,6 +341,11 @@ body {
         &__right-icon {
             width: 16px;
             height: 16px;
+            margin-right: 24px;
+
+            @media (#{breakpoints.$breakpointDesktop}) {
+                margin: 0px;
+            }
         }
     }
 }
