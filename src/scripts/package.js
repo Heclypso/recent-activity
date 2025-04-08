@@ -56,7 +56,7 @@ export const existeAlgumaAnomaliaDetectada = () => {
         oldBrowser.innerText = newBrowser.innerText
         oldSection.innerHTML = newSection.innerHTML
         activityIcon.src = './images/danger-activity.svg'
-        statusMessage.innerText = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail.'
+        statusMessage.innerHTML = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>'
 
         newDevice.innerText = 'Linux'
         newLocal.innerText = 'Chengdu, China'
