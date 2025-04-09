@@ -1,4 +1,4 @@
-import { verificaAnomalias, existeAlgumaAnomaliaDetectada, setItensDoHistoricoDeAnomalias } from './package.min.js'
+import { verificaAnomalias, existeAlgumaAnomaliaDetectada, setItensDoHistoricoDeAnomalias} from './package.min.js'
 
 const button = document.querySelector('.btn-trigger')
 

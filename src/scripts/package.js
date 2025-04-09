@@ -13,7 +13,6 @@ const button = document.querySelector('.btn-trigger')
 const buttonImage = document.querySelector('img.btn-trigger__image')
 
 export const verificaAnomalias = () => {
-    
     let possuiAnomalias = false;
 
     if (button.classList.contains('btn-trigger--danger')) {
@@ -44,7 +43,6 @@ export const existeAlgumaAnomaliaDetectada = () => {
 function criaAnomalia() {
     buttonImage.src = "./images/danger-icon.svg"
     buttonImage.alt = "Icone de conta em perigo"
-    button.classList.toggle('btn-trigger--danger')
 
     const newDevice = document.querySelector("#new-device-target")
     const newLocal = document.querySelector("#new-local-target")
