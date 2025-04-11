@@ -65,7 +65,7 @@ function criaAnomalia() {
     statusMessage.innerHTML = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>'
     oldSection.classList = newSection.classList
 
-    newDevice.innerText = 'Linux'
+    newDevice.innerText = 'Kali NetHunter'
     newLocal.innerText = 'Chengdu, China'
     newBrowser.innerText = 'Safari'
     newSection.innerHTML =  '<img class="activity-icon activity-icon-history" src="./images/danger-activity.svg" alt="Ícone da atividade atual">Atividade suspeita'
