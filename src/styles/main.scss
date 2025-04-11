@@ -215,28 +215,43 @@ body {
 
     &__icon {
         position: absolute;
-        top: 28px;
+        top: 16px;
         left: 20px;
-        width: 54px;
-        height: 40px;
-        background-color: variables.$primaryDangerColor;
+        width: 72px;
+        height: 72px;;
 
         @media (#{breakpoints.$breakpointDesktop}) {
-            display: none;
+            display: block;
+        }
+
+        &--desktop {
+            background: no-repeat url(https://www.gstatic.com/identity/boq/accountsettingssecuritycommon/images/sprites/devices_realistic_72-b9bd1ca60228ef0457a37afb84e72bdd.png) 0 -1460px;
+            background-size: 72px 1532px;
+        }
+
+        &--mobile {
+            background: no-repeat url(https://www.gstatic.com/identity/boq/accountsettingssecuritycommon/images/sprites/devices_realistic_72-b9bd1ca60228ef0457a37afb84e72bdd.png) 0 -657px;
+            background-size: 72px 1532px;
         }
     }
 
     &__title {
         width: 240px;
-        top: 12px;
-        left: 12px;
+        top: 16px;
+        left: calc(12px + 20px + 72px);
         margin-top: 14px;
         margin-bottom: 20px;
+        position: absolute;
+        color: variables.$tertiaryTextColor;
+        display: none;
         
+        @media (#{breakpoints.$breakpointTablet}) {
+            width: 120px;
+            display: block;
+        }
+
         @media (#{breakpoints.$breakpointDesktop}) {
-            position: absolute;
-            margin-bottom: 0px;
-            margin-top: 0px;
+            display: block;
         }
     }
 
@@ -246,10 +261,26 @@ body {
         align-items: center;
         justify-content: flex-end;
 
+        @media (#{breakpoints.$breakpointTablet}) {
+            width: 100%;
+        }
+
+        @media (#{breakpoints.$breakpointDesktop}) {
+            width: 250px;
+        }
+
         &__main {   
             width: 140px;
             display: flex;
             flex-direction: column;
+
+            @media (#{breakpoints.$breakpointTablet}) {
+                width: 50%;
+            }
+            
+            @media (#{breakpoints.$breakpointDesktop}) {
+                width: 140px;
+            }
 
             .device {
                 color: variables.$tertiaryTextColor;
@@ -293,6 +324,10 @@ body {
         height: 1px;
         background-color: variables.$secondaryStrokeColor;
         margin: 12px 0px;
+
+        @media (#{breakpoints.$breakpointTablet}) {
+            width: calc(50% + 100px);
+        }
 
         @media (#{breakpoints.$breakpointDesktop}) {
             width: 250px;
