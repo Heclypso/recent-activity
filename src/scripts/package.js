@@ -1,14 +1,3 @@
-// const endpoint = ''
-
-// export const chamarApi = async () => {
-//     const resp = await fetch(endpoint)
-
-//     if (resp.status === 200) {
-//         const obj = await resp.json()
-//         console.log(obj)
-//     }
-// }
-
 const button = document.querySelector('.btn-trigger')
 const buttonImage = document.querySelector('img.btn-trigger__image')
 
@@ -21,7 +10,7 @@ export const verificaAnomalias = () => {
         possuiAnomalias = true;    
     } else {
         buttonImage.src = "./images/protected-icon.svg"
-        buttonImage.alt = "Icone de conta protegida"  
+        buttonImage.alt = "Icone de conta protegida"    
         possuiAnomalias = false; 
     } 
 
@@ -39,6 +28,8 @@ export const existeAlgumaAnomaliaDetectada = () => {
         console.log("Nenhuma invasão detectada.")
     }
 }
+
+const endpoint = 'http://localhost:3000/api/falso-acesso'
 
 function criaAnomalia() {
     buttonImage.src = "./images/danger-icon.svg"
@@ -65,9 +56,19 @@ function criaAnomalia() {
     statusMessage.innerHTML = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>'
     oldSection.classList = newSection.classList
 
-    newDevice.innerText = 'Kali NetHunter'
-    newLocal.innerText = 'Chengdu, China'
-    newBrowser.innerText = 'Safari'
+    const chamarApi = async () => {
+        const resp = await fetch(endpoint)
+
+        if (resp.status === 200) {
+            const obj = await resp.json()
+                newDevice.innerText = obj.sistemaOperacional;
+                newLocal.innerText = obj.local;
+                newBrowser.innerText = obj.navegador;
+        }
+    }
+
+    chamarApi()
+
     newSection.innerHTML =  '<img class="activity-icon activity-icon-history" src="./images/danger-activity.svg" alt="Ícone da atividade atual">Atividade suspeita'
     newSection.classList.add('section--danger')
 }
