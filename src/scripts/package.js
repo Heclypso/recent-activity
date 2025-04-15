@@ -1,5 +1,3 @@
-const newSection = document.querySelector("#new-section-target")
-
 function retornaAcessoCadastrado() {
     const acessoCadastrado = ['Windows', 'São Paulo, Brasil', 'Google Chrome']
     return acessoCadastrado
@@ -60,6 +58,7 @@ function criaAnomalia() {
     const newDevice = document.querySelector("#new-device-target")
     const newLocal = document.querySelector("#new-local-target")
     const newBrowser = document.querySelector("#new-browser-target")
+    const newSection = document.querySelector("#new-section-target")
 
     const activityIcon = document.querySelector("img.activity-icon-history")
     const statusMessage = document.querySelector(".message__text")
@@ -72,13 +71,17 @@ function criaAnomalia() {
     oldBrowser.innerText = newBrowser.innerText
     oldSection.innerHTML = newSection.innerHTML
     oldSection.classList = newSection.classList
-    oldSection.setAttribute('data-section', 'danger')
 
     newDevice.innerText = obj.sistemaOperacional;
     newLocal.innerText = obj.local;
     newBrowser.innerText = obj.navegador;
     newSection.innerHTML =  '<img class="activity-icon activity-icon-history" src="./images/danger-activity.svg" alt="Ícone da atividade atual">Atividade suspeita'
     newSection.classList.add('section--danger')
+
+    if (newSection.attributes.length == 3) {
+        oldSection.setAttribute(newSection.attributes[2].nodeName, newSection.attributes[2].nodeValue)
+    }
+
     newSection.setAttribute('data-section', 'danger')
 
     activityIcon.src = './images/danger-activity.svg'
@@ -86,11 +89,11 @@ function criaAnomalia() {
     const sections = document.querySelectorAll('[data-section="danger"]').length
 
     if(sections > 1) {
-        statusMessage.innerHTML = `Você possui atividades suspeitas de ${sections} mês atrás relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>`
+        statusMessage.innerHTML = `Você possui ${sections} atividades suspeitas relacionadas a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>`
     } else {
-        statusMessage.innerHTML = 'Você possui atividades suspeitas de 1 mês atrás relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>'
+        statusMessage.innerHTML = 'Você possui uma atividade suspeita relacionada a uma de suas contas vinculadas neste e-mail. <a class="message__link text-big" href="#">Saiba mais.</a>'
     }
-} 
+}
 
 function getItensDoHistoricoDeAnomalias() {
     const statusMessage = document.querySelector(".message__text").innerHTML
@@ -100,12 +103,16 @@ function getItensDoHistoricoDeAnomalias() {
     const newBrowserContent = document.querySelector("#new-browser-target").innerText
     const newSectionContent = document.querySelector("#new-section-target").innerHTML
     const newSectionClassList = document.querySelector("#new-section-target").classList
+    const newSectionAttributeName = document.querySelector("#new-section-target").attributes[2].nodeName
+    const newSectionAttributeValue = document.querySelector("#new-section-target").attributes[2].nodeValue
 
     const oldDeviceContent = document.querySelector("#old-device-target").innerText
     const oldLocalContent =  document.querySelector("#old-local-target").innerText
     const oldBrowserContent = document.querySelector("#old-browser-target").innerText
     const oldSectionContent = document.querySelector("#old-section-target").innerHTML
     const oldSectionClassList = document.querySelector("#old-section-target").classList
+    const oldSectionAttributeName = document.querySelector("#old-section-target").attributes[2].nodeName
+    const oldSectionAttributeValue = document.querySelector("#old-section-target").attributes[2].nodeValue
 
     sessionStorage.setItem('statusMessageOnStorage', statusMessage.toString())
 
@@ -114,13 +121,16 @@ function getItensDoHistoricoDeAnomalias() {
     sessionStorage.setItem('newBrowserContentOnStorage', newBrowserContent.toString())
     sessionStorage.setItem('newSectionContentOnStorage', newSectionContent.toString())
     sessionStorage.setItem('newSectionClassListOnStorage', newSectionClassList.toString())
+    sessionStorage.setItem('newSectionAttributeNameOnStorage', newSectionAttributeName.toString())
+    sessionStorage.setItem('newSectionAttributeValueOnStorage', newSectionAttributeValue.toString())
     
     sessionStorage.setItem('oldDeviceContentOnStorage', oldDeviceContent.toString())
     sessionStorage.setItem('oldLocalContentOnStorage', oldLocalContent.toString())
     sessionStorage.setItem('oldBrowserContentOnStorage', oldBrowserContent.toString())
     sessionStorage.setItem('oldSectionContentOnStorage', oldSectionContent.toString())
     sessionStorage.setItem('oldSectionClassListOnStorage', oldSectionClassList.toString())
-
+    sessionStorage.setItem('oldSectionAttributeNameOnStorage', oldSectionAttributeName.toString())
+    sessionStorage.setItem('oldSectionAttributeValueOnStorage', oldSectionAttributeValue.toString())
 }
 
 export function setItensDoHistoricoDeAnomalias() {
@@ -135,11 +145,13 @@ export function setItensDoHistoricoDeAnomalias() {
         document.querySelector("#new-browser-target").innerText = sessionStorage.getItem('newBrowserContentOnStorage')
         document.querySelector("#new-section-target").innerHTML = sessionStorage.getItem('newSectionContentOnStorage')
         document.querySelector("#new-section-target").classList = sessionStorage.getItem('newSectionClassListOnStorage')
+        document.querySelector("#new-section-target").setAttribute(`${sessionStorage.getItem('newSectionAttributeNameOnStorage')}`, `${sessionStorage.getItem('newSectionAttributeValueOnStorage')}`)
     
         document.querySelector("#old-device-target").innerText = sessionStorage.getItem('oldDeviceContentOnStorage')
         document.querySelector("#old-local-target").innerText = sessionStorage.getItem('oldLocalContentOnStorage')
         document.querySelector("#old-browser-target").innerText = sessionStorage.getItem('oldBrowserContentOnStorage')
         document.querySelector("#old-section-target").innerHTML = sessionStorage.getItem('oldSectionContentOnStorage')
         document.querySelector("#old-section-target").classList = sessionStorage.getItem('oldSectionClassListOnStorage')
+        document.querySelector("#old-section-target").setAttribute(`${sessionStorage.getItem('oldSectionAttributeNameOnStorage')}`, `${sessionStorage.getItem('oldSectionAttributeValueOnStorage')}`)
     }
 }
