@@ -3,6 +3,7 @@ import htmlmin from "gulp-htmlmin";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
 import uglify from "gulp-uglify"
+import babel from "gulp-babel";
 import sourcemaps from "gulp-sourcemaps"
 import dartSass from "sass"
 import gulpSass from "gulp-sass"
@@ -31,6 +32,7 @@ function minificaImagens() {
 
 function compilaJavaScript() {
     return gulp.src("./src/scripts/*.js")
+        .pipe(babel())
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest("./dist/scripts"))

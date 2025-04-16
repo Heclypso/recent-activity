@@ -1,9 +1,14 @@
-{"type": "module",
-"scripts": {
-  "gulp": "gulp"
-},
+{
+  "type": "module",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "browserslist": "> 0.25%",
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
     "gulp": "^5.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^4.0.0",
     "gulp-rename": "^2.0.0",

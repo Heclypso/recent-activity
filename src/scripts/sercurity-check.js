@@ -6,7 +6,7 @@ const accordionLeftIcon = document.querySelector('.accordion__left-icon')
 const accordionText = document.querySelector('.accordion__head__subtitle')
 const statusSubtitle = document.querySelector('.status__subtitle')
 
-if (possuiAnomalias === 'true') {
+if (possuiAnomalias === 'true') { // Se existir alguma anomalia a página de security-check irá comunicar essa anomalia para o usuário.
     statusContainer.classList.add('status--danger')
     accordionText.classList.add('accordion__head__subtitle--danger')
     accordionText.innerText = 'Sua conta pode estar em risco'
