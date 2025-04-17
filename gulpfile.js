@@ -1,18 +1,20 @@
-import gulp from "gulp"
+import gulp from "gulp";
 import htmlmin from "gulp-htmlmin";
 import imagemin from "gulp-imagemin";
 import rename from "gulp-rename";
-import uglify from "gulp-uglify"
+import uglify from "gulp-uglify";
 import babel from "gulp-babel";
-import sourcemaps from "gulp-sourcemaps"
-import dartSass from "sass"
-import gulpSass from "gulp-sass"
+import cleanCSS from "gulp-clean-css";
+import sourcemaps from "gulp-sourcemaps";
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass)
 
 function compilaSass() {
-    return gulp.src('./src/styles/**/*.scss')
+    return gulp.src('./src/styles/main.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(cleanCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./dist/styles'))
