@@ -1,18 +1,18 @@
-Sobre o projeto
+# Sobre o projeto
 
     O projeto foi inspirado em duas páginas do Google Account e tem como objetivo comunicar ao usuário acessos estranhos à sua conta. O projeto funciona da seguinte maneira, o front-end faz uma requisição pro back-end (api) que retorna uma resposta contendo um objeto que simula as informações vindas de um novo acesso à sua conta utilizando um dispositivo diferente em uma cidade diferente e com um navegador diferente do habitual essa reposta é formatada em um array que é usado para uma comparação com o ultimo acesso autenticado da sua conta. 
 
-Funções do package.js
+# Funções do package.js
 
-- retornaAcessoCadastrado
+## retornaAcessoCadastrado
     A função retornaAcessoCadastrado foi construida dessa maneira para emular uma requisição a um banco de dados que retornaria uma resposta contendo as informações do ultimo acesso que foi autenticado pelo usuário e posteriormente essa resposta seria formatada como a resposta da função chamaApi, porém, para poupar tempo no desenvolvimento do projeto eu optei por fazer com que a função retorne apenas um array simples que simula a resposta do back-end já formatada. 
 
     Durante o desenvolvimento do projeto eu me deparei com a possibilidade de utilizar ferramentas como UAParser.js, ipinfo.io e FingerprintJS para obter o endereço, o ip e o navegador do usuário que estivesse usando o meu projeto para utilizar essas informações no sistema de detecção de anomalias com o propósito de tornar o sistema de detecção de anomalias "mais real", porém, essa ideia foi descartada porque eu não queria mexer com dados sensíveis.
 
-- getItensDoHistoricoDeAnomalias
+## getItensDoHistoricoDeAnomalias
     As informações armazenadas pela função getItensDoHistoricoDeAnomalias poderiam ter sido armazenadas de diferentes maneiras utilizando diferentes ferramentas e funcionalidades por exemplo utilizando cookies, porém eu gostaria que o comportamento que a página demonstra quando não possui nenhuma anomalia detectada fosse observada da maneira mais simples possível e pudesse ser revisitada apenas fechando a guia da página e a reabrindo.   
 
-- tecnologias utilizadas e tarefas do gulpfile.js
+# Tecnologias utilizadas e tarefas do gulpfile.js
 gulp: ferramenta de automação responsável por permitir a criação de tarefas que são utilizadas para automatizar ações no código agilizando o tempo de desenvolvido do projeto.
     Tarefas presentes no gulpfile.js: 
         compilaSass
