@@ -182,11 +182,12 @@ body {
 }
 
 .message {
-    margin-top: 32px;
+    margin-top: 26px;
     color: variables.$primaryTextColor;
     margin-bottom: 20px;
 
     @media (#{breakpoints.$breakpointDesktop}) {
+        margin-top: 32px;
         margin-bottom: 28px;
     }
 
