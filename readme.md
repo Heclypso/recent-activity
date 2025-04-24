@@ -2,6 +2,8 @@
 
 O projeto foi inspirado em duas páginas do Google Account e tem como objetivo comunicar ao usuário acessos estranhos à sua conta. O projeto funciona da seguinte maneira, o front-end faz uma requisição pro back-end (api) que retorna uma resposta contendo um objeto que simula as informações vindas de um novo acesso à sua conta utilizando um dispositivo diferente em uma cidade diferente e com um navegador diferente do habitual essa reposta é formatada em um array que é usado para uma comparação com o ultimo acesso autenticado da sua conta. 
 
+Para observar o comportamento do projeto em relação à invasão é necessário apertar o botão vermelho, para cada clique será criado uma nova invasão
+
 # Funções do package.js
 
 ## - retornaAcessoCadastrado
